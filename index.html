@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrawal Restaurant - Authentic Indian Flavors, Modern Dining Experience</title>
+    <meta name="description" content="Experience the finest Indian cuisine in the heart of Jaipur. Our restaurant combines traditional recipes with contemporary presentation.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>Agrawal Restaurant</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#restaurant" class="nav-link">About</a></li>
+                <li><a href="#bar" class="nav-link">Bar</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#account" class="nav-link">Account</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="cart-toggle" aria-label="Toggle cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+        <div class="scroll-progress"></div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <div class="subtotal">Subtotal: ₹<span id="cart-subtotal">0</span></div>
+            </div>
+            <button class="btn btn--primary btn--full-width" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Agrawal Restaurant</h1>
+                    <p class="hero-subtitle">Authentic Indian Flavors, Modern Dining Experience</p>
+                    <p class="hero-description">Experience the finest Indian cuisine in the heart of Jaipur. Our restaurant combines traditional recipes with contemporary presentation, offering an unforgettable culinary journey.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary" onclick="navigateTo('menu')">Order Now</button>
+                        <button class="btn btn--outline" onclick="navigateTo('restaurant')">Book Table</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600" alt="Restaurant Interior" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Featured Categories -->
+            <section class="featured-categories">
+                <div class="container">
+                    <h2>Our Specialties</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300" alt="Vegetarian" loading="lazy">
+                            <h3>Vegetarian</h3>
+                            <p>Fresh and flavorful vegetarian dishes</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300" alt="Non-Vegetarian" loading="lazy">
+                            <h3>Non-Vegetarian</h3>
+                            <p>Succulent meat and poultry specialties</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=300" alt="South Indian" loading="lazy">
+                            <h3>South Indian</h3>
+                            <p>Authentic South Indian delicacies</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300" alt="Italian" loading="lazy">
+                            <h3>Italian</h3>
+                            <p>Classic Italian cuisine with Indian twist</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Carousel -->
+            <section class="carousel-section">
+                <div class="container">
+                    <h2>Experience Our Ambiance</h2>
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Restaurant Interior" loading="lazy">
+                                <div class="slide-content">
+                                    <h3>Fine Dining</h3>
+                                    <p>Elegant dining experience with premium ambiance</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1753611250/pplx_project_search_images/390af05cb9aca62e0891170c6d1ec17695860adb.jpg" alt="Bar Lounge" loading="lazy">
+                                <div class="slide-content">
+                                    <h3>Rooftop Bar</h3>
+                                    <p>Sophisticated bar with city views</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800" alt="Food" loading="lazy">
+                                <div class="slide-content">
+                                    <h3>Culinary Excellence</h3>
+                                    <p>Expertly crafted dishes with authentic flavors</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="indicator active" data-slide="0"></button>
+                            <button class="indicator" data-slide="1"></button>
+                            <button class="indicator" data-slide="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <section class="quick-links">
+                <div class="container">
+                    <div class="links-grid">
+                        <div class="link-card" onclick="navigateTo('menu')">
+                            <i class="fas fa-utensils"></i>
+                            <h3>View Menu</h3>
+                            <p>Explore our extensive menu</p>
+                        </div>
+                        <div class="link-card" onclick="navigateTo('restaurant')">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Book Table</h3>
+                            <p>Reserve your dining experience</p>
+                        </div>
+                        <div class="link-card" onclick="navigateTo('contact')">
+                            <i class="fas fa-phone"></i>
+                            <h3>Contact Us</h3>
+                            <p>Get in touch with us</p>
+                        </div>
+                        <div class="link-card" onclick="navigateTo('bar')">
+                            <i class="fas fa-cocktail"></i>
+                            <h3>Bar & Lounge</h3>
+                            <p>Experience our rooftop bar</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials">
+                <div class="container">
+                    <h2>What Our Customers Say</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Absolutely amazing food and service! The butter chicken was the best I've ever had."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Priya Sharma" loading="lazy">
+                                <div>
+                                    <h4>Priya Sharma</h4>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Perfect place for family dining. Great ambiance and authentic flavors."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Rajesh Kumar" loading="lazy">
+                                <div>
+                                    <h4>Rajesh Kumar</h4>
+                                    <span>Food Enthusiast</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p>"Loved the rooftop bar! Great cocktails and beautiful city views."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b6734333?w=100" alt="Anita Gupta" loading="lazy">
+                                <div>
+                                    <h4>Anita Gupta</h4>
+                                    <span>Happy Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <div class="container">
+                    <div class="newsletter-content">
+                        <h2>Stay Updated</h2>
+                        <p>Subscribe to our newsletter for special offers and updates</p>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Menu Page -->
+        <section id="menu" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Our Menu</h1>
+                    <p>Discover our extensive collection of authentic Indian dishes</p>
+                </div>
+
+                <div class="menu-controls">
+                    <div class="search-box">
+                        <input type="text" id="menu-search" placeholder="Search dishes...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">All</button>
+                        <button class="filter-tab" data-category="Veg">Vegetarian</button>
+                        <button class="filter-tab" data-category="Non-Veg">Non-Veg</button>
+                        <button class="filter-tab" data-category="South Indian">South Indian</button>
+                        <button class="filter-tab" data-category="Italian">Italian</button>
+                        <button class="filter-tab" data-category="Dessert">Desserts</button>
+                        <button class="filter-tab" data-category="Drinks">Drinks</button>
+                    </div>
+                </div>
+
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Menu items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Page -->
+        <section id="checkout" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Checkout</h1>
+                    <p>Complete your order</p>
+                </div>
+
+                <div class="checkout-container">
+                    <div class="checkout-form">
+                        <div class="checkout-section">
+                            <h3>Billing Details</h3>
+                            <form id="billing-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Delivery Address *</label>
+                                    <textarea class="form-control" rows="3" required></textarea>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="checkout-section">
+                            <h3>Payment Method</h3>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="qr" checked>
+                                    <span class="payment-label">
+                                        <i class="fas fa-qrcode"></i>
+                                        QR Code Payment
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="upi">
+                                    <span class="payment-label">
+                                        <i class="fab fa-google-pay"></i>
+                                        UPI Payment
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="card">
+                                    <span class="payment-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Credit/Debit Card
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="cod">
+                                    <span class="payment-label">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        Cash on Delivery
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="checkout-section">
+                            <h3>Coupon Code</h3>
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Enter coupon code" id="coupon-input">
+                                <button type="button" class="btn btn--outline" id="apply-coupon">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div class="order-items" id="checkout-items"></div>
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span>₹<span id="checkout-subtotal">0</span></span>
+                            </div>
+                            <div class="total-row">
+                                <span>Delivery Fee:</span>
+                                <span>₹<span id="delivery-fee">50</span></span>
+                            </div>
+                            <div class="total-row">
+                                <span>Taxes:</span>
+                                <span>₹<span id="taxes">0</span></span>
+                            </div>
+                            <div class="total-row discount hidden">
+                                <span>Discount:</span>
+                                <span>-₹<span id="discount-amount">0</span></span>
+                            </div>
+                            <div class="total-row final">
+                                <span>Total:</span>
+                                <span>₹<span id="final-total">0</span></span>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="place-order">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant Info Page -->
+        <section id="restaurant" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>About Agrawal Restaurant</h1>
+                    <p>Experience the finest Indian cuisine in the heart of Jaipur</p>
+                </div>
+
+                <div class="restaurant-content">
+                    <div class="about-section">
+                        <div class="about-text">
+                            <h2>Our Story</h2>
+                            <p>Founded by Hanish Singhal, Agrawal Restaurant has been serving the finest Indian cuisine for years. We combine traditional recipes with contemporary presentation, creating an unforgettable culinary journey for our guests.</p>
+                            <p>Our commitment to quality, authenticity, and exceptional service has made us one of Jaipur's most beloved dining destinations.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500" alt="Restaurant Owner" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="services-section">
+                        <h2>Our Services</h2>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <i class="fas fa-utensils"></i>
+                                <h3>Fine Dining</h3>
+                                <p>Elegant dining experience with premium ambiance and exceptional service</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-cocktail"></i>
+                                <h3>Rooftop Bar</h3>
+                                <p>Sophisticated bar with panoramic city views and premium cocktails</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-calendar"></i>
+                                <h3>Private Events</h3>
+                                <p>Customized event spaces for celebrations and corporate gatherings</p>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-spa"></i>
+                                <h3>Spa & Wellness</h3>
+                                <p>Relaxation and rejuvenation services for complete wellness experience</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-section">
+                        <h2>Book a Table</h2>
+                        <form class="booking-form" id="booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Time</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select Time</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="12:30">12:30 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="13:30">1:30 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="19:30">7:30 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                        <option value="20:30">8:30 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Guests</label>
+                                    <select class="form-control" required>
+                                        <option value="">Number of Guests</option>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="5">5 Guests</option>
+                                        <option value="6+">6+ Guests</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Special Requests</label>
+                                <textarea class="form-control" rows="3" placeholder="Any special requirements or requests"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Book Table</button>
+                        </form>
+                    </div>
+
+                    <div class="hours-section">
+                        <h2>Operating Hours</h2>
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span>Monday - Thursday</span>
+                                <span>11:00 AM - 11:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Friday - Saturday</span>
+                                <span>11:00 AM - 12:00 AM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Sunday</span>
+                                <span>11:00 AM - 11:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="status-indicator">
+                            <span class="status open">Currently Open</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bar & Lounge Page -->
+        <section id="bar" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Bar & Lounge</h1>
+                    <p>Experience our sophisticated rooftop bar with panoramic city views</p>
+                </div>
+
+                <div class="bar-hero">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1752796006/pplx_project_search_images/1bac2d7284226beac66efc5e7cbb2d8f6f7f805e.jpg" alt="Rooftop Bar" loading="lazy">
+                    <div class="bar-hero-content">
+                        <h2>Rooftop Bar Experience</h2>
+                        <p>Unwind with premium cocktails and breathtaking views of Jaipur</p>
+                    </div>
+                </div>
+
+                <div class="bar-content">
+                    <div class="drinks-menu">
+                        <h2>Signature Cocktails</h2>
+                        <div class="drinks-grid">
+                            <div class="drink-item">
+                                <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=200" alt="Mojito" loading="lazy">
+                                <h3>Royal Mojito</h3>
+                                <p>Fresh mint, lime, and premium rum</p>
+                                <span class="price">₹350</span>
+                            </div>
+                            <div class="drink-item">
+                                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=200" alt="Martini" loading="lazy">
+                                <h3>Jaipur Martini</h3>
+                                <p>Gin-based cocktail with local spices</p>
+                                <span class="price">₹400</span>
+                            </div>
+                            <div class="drink-item">
+                                <img src="https://images.unsplash.com/photo-1481671703460-040cb8a2d909?w=200" alt="Whiskey" loading="lazy">
+                                <h3>Heritage Whiskey</h3>
+                                <p>Premium aged whiskey selection</p>
+                                <span class="price">₹500</span>
+                            </div>
+                            <div class="drink-item">
+                                <img src="https://images.unsplash.com/photo-1471691743851-c4df8b6ee147?w=200" alt="Wine" loading="lazy">
+                                <h3>Wine Selection</h3>
+                                <p>Curated collection of fine wines</p>
+                                <span class="price">₹450</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lounge-gallery">
+                        <h2>Lounge Ambiance</h2>
+                        <div class="gallery-grid">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1751707347/pplx_project_search_images/3a2c00ee3de6dfd042e2a6a814af7faa527e0573.jpg" alt="Lounge Interior" loading="lazy">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1750151681/pplx_project_search_images/ffc60f6bcf6b6fe7fd2080dd92e69a98e8f2bcb2.jpg" alt="Bar Counter" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=400" alt="Party Atmosphere" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="event-booking">
+                        <h2>Book Private Event</h2>
+                        <form class="event-form" id="event-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Event Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Expected Guests</label>
+                                    <input type="number" class="form-control" min="10" max="100" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Event Type</label>
+                                <select class="form-control" required>
+                                    <option value="">Select Event Type</option>
+                                    <option value="birthday">Birthday Party</option>
+                                    <option value="corporate">Corporate Event</option>
+                                    <option value="wedding">Wedding Reception</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Special Requirements</label>
+                                <textarea class="form-control" rows="3" placeholder="DJ, decorations, special menu, etc."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Book Event</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Page -->
+        <section id="account" class="page">
+            <div class="container">
+                <div class="account-container">
+                    <div class="auth-forms" id="auth-forms">
+                        <div class="auth-tabs">
+                            <button class="auth-tab active" data-tab="login">Login</button>
+                            <button class="auth-tab" data-tab="register">Register</button>
+                        </div>
+
+                        <div class="auth-form login-form active">
+                            <h2>Welcome Back</h2>
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                            </form>
+                            <div class="social-login">
+                                <p>Or login with</p>
+                                <div class="social-buttons">
+                                    <button class="btn btn--outline social-btn">
+                                        <i class="fab fa-google"></i> Google
+                                    </button>
+                                    <button class="btn btn--outline social-btn">
+                                        <i class="fab fa-facebook"></i> Facebook
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="forgot-password">
+                                <a href="#" id="forgot-password-link">Forgot Password?</a>
+                            </p>
+                        </div>
+
+                        <div class="auth-form register-form">
+                            <h2>Create Account</h2>
+                            <form id="register-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Register</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="user-dashboard hidden" id="user-dashboard">
+                        <div class="dashboard-header">
+                            <h2>Welcome, <span id="user-name">User</span>!</h2>
+                            <button class="btn btn--outline" id="logout-btn">Logout</button>
+                        </div>
+
+                        <div class="dashboard-tabs">
+                            <button class="dashboard-tab active" data-tab="orders">Orders</button>
+                            <button class="dashboard-tab" data-tab="wishlist">Wishlist</button>
+                            <button class="dashboard-tab" data-tab="profile">Profile</button>
+                        </div>
+
+                        <div class="dashboard-content">
+                            <div class="dashboard-section orders-section active">
+                                <h3>Previous Orders</h3>
+                                <div class="orders-list" id="orders-list">
+                                    <p>No orders found. <a href="#menu" onclick="navigateTo('menu')">Start ordering!</a></p>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-section wishlist-section">
+                                <h3>Your Wishlist</h3>
+                                <div class="wishlist-grid" id="wishlist-grid">
+                                    <p>Your wishlist is empty.</p>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-section profile-section">
+                                <h3>Profile Settings</h3>
+                                <form class="profile-form" id="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="tel" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn--primary">Update Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with us for reservations, inquiries, or feedback</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>7878030802</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@agrawalrestaurant.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>Jaipur, Rajasthan, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-section">
+                        <h2>Send us a Message</h2>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <h2>Find Us</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.9959313949!2d75.65046535781232!3d26.885145181532443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1674123456789!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Agrawal Restaurant</h3>
+                    <p>Authentic Indian Flavors, Modern Dining Experience</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" onclick="navigateTo('home')">Home</a></li>
+                        <li><a href="#menu" onclick="navigateTo('menu')">Menu</a></li>
+                        <li><a href="#restaurant" onclick="navigateTo('restaurant')">About</a></li>
+                        <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 7878030802</p>
+                    <p><i class="fas fa-envelope"></i> info@agrawalrestaurant.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <p>Mon-Thu: 11:00 AM - 11:00 PM</p>
+                    <p>Fri-Sat: 11:00 AM - 12:00 AM</p>
+                    <p>Sunday: 11:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Agrawal Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917878030802" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="app.js"></script>
+</body>
+</html>
